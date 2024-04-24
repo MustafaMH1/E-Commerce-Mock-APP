@@ -1,11 +1,23 @@
 package org.Android.utils;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.Activity;
 import io.appium.java_client.android.AndroidDriver;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
+
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.List;
+
 
 public class AndroidActions {
 
@@ -19,7 +31,7 @@ public class AndroidActions {
 
     }
 
-    //public void scrolltoEnd
+
 
     public void scrollToCoordinates(int percent){
         boolean canScrollMore = (Boolean) ((JavascriptExecutor)driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
@@ -44,6 +56,12 @@ public class AndroidActions {
         Element.sendKeys(text);
         driver.hideKeyboard();
     }
+
+    public void setActivity(String packageName , String activityName){
+        Activity activity = new Activity(packageName,activityName);
+        ((JavascriptExecutor)driver).executeScript("mobile: startActivity", ImmutableMap.of("intent",activityName));
+    }
+
 
 
 }

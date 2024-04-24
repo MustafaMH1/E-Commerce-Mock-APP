@@ -7,10 +7,6 @@
         </classes>
     </test>
 
-    <test name="End to End Test">
-        <classes>
-            <class name="ProductTest"/>
-        </classes>
-    </test>
+
 
 </suite>

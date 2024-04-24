@@ -2,6 +2,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
+import org.Android.utils.AndroidActions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -15,11 +16,13 @@ public class BaseTest {
         AndroidDriver driver;
         AppiumDriverLocalService service;
 
-        @BeforeClass
+
+
+    @BeforeClass
         public void InitConfig() throws URISyntaxException, MalformedURLException {
             //Android Driver
             UiAutomator2Options options = new UiAutomator2Options();
-            options.setApp("C:\\Users\\musta\\IdeaProjects\\AppiumFramework\\src\\main\\resources\\General-Store.apk");
+            options.setApp(System.getProperty("user.dir")+"\\src\\main\\resources\\General-Store.apk");
             options.setDeviceName("Pixel");
 
             driver = new AndroidDriver(new URI("http://127.0.0.1:4723").toURL(),options);
