@@ -1,3 +1,5 @@
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;
@@ -5,6 +7,7 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.Activity;
 import io.appium.java_client.android.AndroidDriver;
 import org.PageObjects.android.FormPage;
+import org.TestUtils.ExtentReporting;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -43,6 +46,7 @@ public class HomeTest extends BaseTest{
 
     @Test(dataProvider = "getData")
     public void HomeValidTC(HashMap<String,String> input) throws InterruptedException {
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.presenceOfElementLocated((By.id("com.androidsample.generalstore:id/toolbar_title"))));
 
