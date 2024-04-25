@@ -35,7 +35,11 @@ public class HomeTest extends BaseTest{
         });
     }
 
-
+    @BeforeMethod
+    public void preSetup(){
+        driver.terminateApp("com.androidsample.generalstore");
+        driver.activateApp("com.androidsample.generalstore");
+    }
    @DataProvider
     public Object [][] getData() throws IOException {
        List<HashMap<String,String>> data = getJsonData(System.getProperty("user.dir")+"\\src\\main\\resources\\Data.json");

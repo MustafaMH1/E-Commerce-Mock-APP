@@ -4,9 +4,12 @@
     <listeners>
         <listener class-name="org.TestUtils.Listeners"/>
     </listeners>
+
+
     <test name = "Home Page Test">
         <classes>
             <class name = "HomeTest"/>
+            <class name = "ProductTest"/>
         </classes>
     </test>
 
